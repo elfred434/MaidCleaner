@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="maid_primary">#FF1B6B4A</color>
+    <color name="maid_on_primary">#FFFFFFFF</color>
+    <color name="maid_primary_container">#FFA4F4C6</color>
+    <color name="maid_on_primary_container">#FF002112</color>
+</resources>

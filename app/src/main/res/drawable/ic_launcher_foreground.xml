@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- MaidCleaner broom icon foreground -->
+    <group
+        android:scaleX="0.5"
+        android:scaleY="0.5"
+        android:translateX="27"
+        android:translateY="27">
+        <!-- Broom handle -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M49,8L53,8A2,2 0,0 1,55 10L55,58A2,2 0,0 1,53 60L49,60A2,2 0,0 1,47 58L47,10A2,2 0,0 1,49 8z"/>
+        <!-- Broom bristles -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M38,56L64,56A4,4 0,0 1,68 60L68,80A4,4 0,0 1,64 84L38,84A4,4 0,0 1,34 80L34,60A4,4 0,0 1,38 56z"/>
+        <!-- Broom bristle lines -->
+        <path
+            android:fillColor="#E0E0E0"
+            android:pathData="M40,60L40,80M46,60L46,80M52,60L52,80M58,60L58,80M62,60L62,80"/>
+        <!-- Sparkle dots -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M72,30m-3,0a3,3 0,1 1,6 0a3,3 0,1 1,-6 0"/>
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M30,24m-2,0a2,2 0,1 1,4 0a2,2 0,1 1,-4 0"/>
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M76,48m-2,0a2,2 0,1 1,4 0a2,2 0,1 1,-4 0"/>
+    </group>
+</vector>

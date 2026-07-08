@@ -1,0 +1,174 @@
+<resources>
+    <string name="app_name">MaidCleaner</string>
+
+    <!-- Navigation -->
+    <string name="nav_dashboard">Dashboard</string>
+    <string name="nav_corpse_finder">Corpse Finder</string>
+    <string name="nav_system_cleaner">System Cleaner</string>
+    <string name="nav_app_cleaner">App Cleaner</string>
+    <string name="nav_app_control">App Control</string>
+    <string name="nav_storage_analyzer">Storage Analyzer</string>
+    <string name="nav_duplicate_finder">Duplicate Finder</string>
+    <string name="nav_optimizer">Optimizer</string>
+    <string name="nav_scheduler">Scheduler</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Dashboard -->
+    <string name="dashboard_title">Storage Health</string>
+    <string name="dashboard_total_storage">Total Storage</string>
+    <string name="dashboard_used">Used</string>
+    <string name="dashboard_free">Free</string>
+    <string name="dashboard_junk_found">Junk Files Found</string>
+    <string name="dashboard_corpses_found">Orphaned Files Found</string>
+    <string name="dashboard_duplicates_found">Duplicates Found</string>
+    <string name="dashboard_quick_scan">Quick Scan</string>
+    <string name="dashboard_storage_health">Storage Health</string>
+
+    <!-- Corpse Finder -->
+    <string name="corpse_finder_title">Corpse Finder</string>
+    <string name="corpse_finder_description">Find leftover files from uninstalled apps</string>
+    <string name="corpse_finder_scan">Scan for Orphaned Files</string>
+    <string name="corpse_finder_scanning">Scanning…</string>
+    <string name="corpse_finder_results">Orphaned Files</string>
+    <string name="corpse_finder_no_results">No orphaned files found. Your storage is clean!</string>
+    <string name="corpse_finder_delete_selected">Delete Selected</string>
+    <string name="corpse_finder_add_whitelist">Add to Whitelist</string>
+    <string name="corpse_finder_remove_whitelist">Remove from Whitelist</string>
+    <string name="corpse_finder_confirm_delete">Confirm Deletion</string>
+    <string name="corpse_finder_delete_message">These files will be permanently deleted. This action cannot be undone.</string>
+    <string name="corpse_finder_size">Size: %s</string>
+    <string name="corpse_finder_items">%d items</string>
+
+    <!-- System Cleaner -->
+    <string name="system_cleaner_title">System Cleaner</string>
+    <string name="system_cleaner_description">Clear cache, temp files, and junk</string>
+    <string name="system_cleaner_scan">Scan for Junk Files</string>
+    <string name="system_cleaner_category_cache">App Cache</string>
+    <string name="system_cleaner_category_logs">Log Files</string>
+    <string name="system_cleaner_category_temp">Temporary Files</string>
+    <string name="system_cleaner_category_empty">Empty Folders</string>
+    <string name="system_cleaner_category_apk">Obsolete APKs</string>
+    <string name="system_cleaner_category_thumbnails">Thumbnail Cache</string>
+    <string name="system_cleaner_before">Before</string>
+    <string name="system_cleaner_after">After</string>
+    <string name="system_cleaner_clean">Clean</string>
+    <string name="system_cleaner_cleaned">Freed %s!</string>
+
+    <!-- App Cleaner -->
+    <string name="app_cleaner_title">App Cleaner</string>
+    <string name="app_cleaner_description">Per-app cache and data breakdown</string>
+    <string name="app_cleaner_app_size">App Size</string>
+    <string name="app_cleaner_cache">Cache</string>
+    <string name="app_cleaner_data">Data</string>
+    <string name="app_cleaner_clear_cache">Clear Cache</string>
+    <string name="app_cleaner_clear_all_cache">Clear All Caches</string>
+    <string name="app_cleaner_excessive_cache">Excessive cache buildup detected</string>
+    <string name="app_cleaner_suggestion">Consider clearing cache for this app</string>
+
+    <!-- App Control -->
+    <string name="app_control_title">App Control</string>
+    <string name="app_control_description">Manage installed applications</string>
+    <string name="app_control_sort_name">Name</string>
+    <string name="app_control_sort_size">Size</string>
+    <string name="app_control_sort_date">Install Date</string>
+    <string name="app_control_sort_usage">Usage</string>
+    <string name="app_control_uninstall">Uninstall</string>
+    <string name="app_control_force_stop">Force Stop</string>
+    <string name="app_control_clear_data">Clear Data</string>
+    <string name="app_control_clear_cache">Clear Cache</string>
+    <string name="app_control_disable">Disable</string>
+    <string name="app_control_enable">Enable</string>
+    <string name="app_control_export">Export List</string>
+    <string name="app_control_import">Import List</string>
+    <string name="app_control_user_apps">User Apps</string>
+    <string name="app_control_system_apps">System Apps</string>
+    <string name="app_control_bulk_uninstall">Bulk Uninstall</string>
+
+    <!-- Storage Analyzer -->
+    <string name="storage_analyzer_title">Storage Analyzer</string>
+    <string name="storage_analyzer_description">Visual breakdown of storage usage</string>
+    <string name="storage_analyzer_apps">Apps</string>
+    <string name="storage_analyzer_media">Media</string>
+    <string name="storage_analyzer_documents">Documents</string>
+    <string name="storage_analyzer_system">System</string>
+    <string name="storage_analyzer_cache">Cache</string>
+    <string name="storage_analyzer_other">Other</string>
+    <string name="storage_analyzer_largest_files">Largest Files</string>
+    <string name="storage_analyzer_filter_all">All</string>
+    <string name="storage_analyzer_filter_video">Video</string>
+    <string name="storage_analyzer_filter_audio">Audio</string>
+    <string name="storage_analyzer_filter_image">Image</string>
+    <string name="storage_analyzer_filter_document">Document</string>
+    <string name="storage_analyzer_filter_archive">Archive</string>
+    <string name="storage_analyzer_filter_apk">APK</string>
+
+    <!-- Duplicate Finder -->
+    <string name="duplicate_finder_title">Duplicate Finder</string>
+    <string name="duplicate_finder_description">Find duplicate files by content</string>
+    <string name="duplicate_finder_scan">Scan for Duplicates</string>
+    <string name="duplicate_finder_scanning">Scanning…</string>
+    <string name="duplicate_finder_no_duplicates">No duplicate files found!</string>
+    <string name="duplicate_finder_group">Group %d</string>
+    <string name="duplicate_finder_keep">Keep</string>
+    <string name="duplicate_finder_delete">Delete</string>
+    <string name="duplicate_finder_delete_duplicates">Delete Duplicates</string>
+    <string name="duplicate_finder_confirm_delete">Confirm deletion of selected duplicates?</string>
+    <string name="duplicate_finder_space_reclaimable">Space reclaimable: %s</string>
+
+    <!-- Optimizer -->
+    <string name="optimizer_title">Database Optimizer</string>
+    <string name="optimizer_description">Optimize SQLite databases (requires root/Shizuku)</string>
+    <string name="optimizer_scan">Scan Databases</string>
+    <string name="optimizer_optimize">Optimize</string>
+    <string name="optimizer_vacuum">VACUUM</string>
+    <string name="optimizer_requires_root">This feature requires root or Shizuku access</string>
+    <string name="optimizer_size_before">Before: %s</string>
+    <string name="optimizer_size_after">After: %s</string>
+    <string name="optimizer_saved">Saved: %s</string>
+
+    <!-- Scheduler -->
+    <string name="scheduler_title">Scheduler</string>
+    <string name="scheduler_description">Schedule recurring scans</string>
+    <string name="scheduler_daily">Daily</string>
+    <string name="scheduler_weekly">Weekly</string>
+    <string name="scheduler_custom">Custom</string>
+    <string name="scheduler_enable">Enable Scheduled Scans</string>
+    <string name="scheduler_time">Scan Time</string>
+    <string name="scheduler_modules">Modules to Run</string>
+    <string name="scheduler_notification_title">MaidCleaner Scan Complete</string>
+    <string name="scheduler_notification_message">Found %1$d junk files (%2$s reclaimable)</string>
+    <string name="scheduler_last_run">Last Run: %s</string>
+    <string name="scheduler_next_run">Next Run: %s</string>
+
+    <!-- Permissions -->
+    <string name="permission_rationale_storage">MaidCleaner needs storage access to scan for junk files, orphaned data, and duplicates. No files are accessed without your explicit action.</string>
+    <string name="permission_rationale_notifications">MaidCleaner needs notification permission to alert you when scheduled scans complete.</string>
+    <string name="permission_rationale_query_packages">MaidCleaner needs to see your installed apps to identify which files are orphaned and to show per-app storage breakdown.</string>
+    <string name="permission_denied">Permission denied. Some features may be limited.</string>
+    <string name="permission_request">Grant Permission</string>
+
+    <!-- Common -->
+    <string name="cancel">Cancel</string>
+    <string name="confirm">Confirm</string>
+    <string name="delete">Delete</string>
+    <string name="select_all">Select All</string>
+    <string name="deselect_all">Deselect All</string>
+    <string name="scanning">Scanning…</string>
+    <string name="complete">Complete</string>
+    <string name="error">Error</string>
+    <string name="retry">Retry</string>
+    <string name="close">Close</string>
+    <string name="ok">OK</string>
+    <string name="undo">Undo</string>
+    <string name="whitelist">Whitelist</string>
+    <string name="blacklist">Blacklist</string>
+    <string name="root_available">Root Access Available</string>
+    <string name="root_unavailable">No Root Access</string>
+    <string name="shizuku_available">Shizuku Available</string>
+    <string name="shizuku_unavailable">Shizuku Not Available</string>
+    <string name="premium_feature">Premium Feature</string>
+    <string name="data_safety_title">Data Safety Summary</string>
+
+    <!-- Data Safety -->
+    <string name="data_safety_summary">MaidCleaner collects NO personal data. All file scanning and cleaning is performed locally on your device. No data is transmitted to any server. The app requests only the minimum permissions needed for each feature.</string>
+</resources>
