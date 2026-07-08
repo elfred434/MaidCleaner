@@ -232,7 +232,7 @@ fun FileEntryCard(
         FileType.DOCUMENT -> Icons.Default.Description
         FileType.ARCHIVE -> Icons.Default.FolderZip
         FileType.APK -> Icons.Default.Android
-        FileType.OTHER -> if (entry.isDirectory) Icons.Default.Folder else Icons.Default.InsertDriveFile
+        FileType.OTHER -> if (entry.isDirectory) Icons.Default.Folder else Icons.AutoMirrored.Filled.InsertDriveFile
     }
 
     Card(

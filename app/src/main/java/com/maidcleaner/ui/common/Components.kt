@@ -75,7 +75,7 @@ fun StorageRingChart(
         contentAlignment = Alignment.Center
     ) {
         CircularProgressIndicator(
-            progress = animatedProgress,
+            progress = { animatedProgress },
             modifier = Modifier.fillMaxSize(),
             color = when {
                 usedPercentage > 90f -> MaterialTheme.colorScheme.error
@@ -166,12 +166,11 @@ fun ScanProgressIndicator(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         LinearProgressIndicator(
-            progress = progress / 100f,
+            progress = { progress / 100f },
             modifier = Modifier
                 .fillMaxWidth()
                 .height(8.dp)
                 .clip(MaterialTheme.shapes.small),
-            color = MaterialTheme.colorScheme.primary,
             strokeCap = StrokeCap.Round
         )
         Spacer(modifier = Modifier.height(8.dp))
@@ -323,7 +322,7 @@ fun PermissionRationaleDialog(
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
                 Spacer(modifier = Modifier.height(12.dp))
-                Divider(color = MaterialTheme.colorScheme.outlineVariant)
+                HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant)
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
                     "This permission will only be used for the stated purpose. No data leaves your device.",

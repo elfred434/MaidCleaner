@@ -43,7 +43,7 @@ fun DataSafetySummary(modifier: Modifier = Modifier) {
                 )
             }
 
-            Divider(modifier = Modifier.padding(vertical = 8.dp), color = MaterialTheme.colorScheme.outlineVariant)
+            HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp), color = MaterialTheme.colorScheme.outlineVariant)
 
             // Data collected
             SectionHeader("Data Collected")
@@ -63,7 +63,7 @@ fun DataSafetySummary(modifier: Modifier = Modifier) {
                 isPositive = true
             )
 
-            Divider(modifier = Modifier.padding(vertical = 8.dp), color = MaterialTheme.colorScheme.outlineVariant)
+            HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp), color = MaterialTheme.colorScheme.outlineVariant)
 
             // Data shared
             SectionHeader("Data Shared")
@@ -83,7 +83,7 @@ fun DataSafetySummary(modifier: Modifier = Modifier) {
                 isPositive = true
             )
 
-            Divider(modifier = Modifier.padding(vertical = 8.dp), color = MaterialTheme.colorScheme.outlineVariant)
+            HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp), color = MaterialTheme.colorScheme.outlineVariant)
 
             // Data handling
             SectionHeader("Data Handling")
@@ -103,7 +103,7 @@ fun DataSafetySummary(modifier: Modifier = Modifier) {
                 isPositive = true
             )
 
-            Divider(modifier = Modifier.padding(vertical = 8.dp), color = MaterialTheme.colorScheme.outlineVariant)
+            HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp), color = MaterialTheme.colorScheme.outlineVariant)
 
             // Permissions
             SectionHeader("Permissions Used")

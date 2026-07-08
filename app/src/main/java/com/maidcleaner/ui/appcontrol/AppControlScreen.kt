@@ -40,7 +40,7 @@ fun AppControlScreen(
                         Icon(Icons.Default.SelectAll, "Select All")
                     }
                     IconButton(onClick = { showSortMenu = true }) {
-                        Icon(Icons.Default.Sort, "Sort")
+                        Icon(Icons.AutoMirrored.Filled.Sort, "Sort")
                     }
                     DropdownMenu(
                         expanded = showSortMenu,
