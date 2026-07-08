@@ -98,7 +98,7 @@ fun SystemCleanerScreen(
                                 color = MaterialTheme.colorScheme.onPrimaryContainer
                             )
                         }
-                        Icon(Icons.AutoMirrored.Filled.ArrowForward, null, tint = MaterialTheme.colorScheme.onPrimaryContainer)
+                        Icon(Icons.Default.ArrowForward, null, tint = MaterialTheme.colorScheme.onPrimaryContainer)
                         Column(horizontalAlignment = Alignment.CenterHorizontally) {
                             Text("After", style = MaterialTheme.typography.labelSmall)
                             Text(

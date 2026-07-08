@@ -139,7 +139,7 @@ fun DuplicateFinderScreen(
                     }
 
                     // Duplicate groups
-                    itemsIndexed(state.duplicateGroups, key = { _, group -> group.hash }) { _, group ->
+                    itemsIndexed(state.duplicateGroups, key = { _, group -> group.hash }) { index, group ->
                         DuplicateGroupCard(
                             group = group,
                             groupIndex = index,
