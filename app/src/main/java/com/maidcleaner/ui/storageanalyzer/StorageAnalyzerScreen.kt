@@ -34,15 +34,19 @@ fun StorageAnalyzerScreen(
 ) {
     val state by viewModel.state.collectAsState()
 
+    val handleBack: () -> Unit = if (state.drillDownStack.isNotEmpty()) {
+        { viewModel.navigateUp() }
+    } else {
+        onBack
+    }
+
     Scaffold(
         topBar = {
             MaidTopAppBar(
                 title = if (state.drillDownStack.isNotEmpty()) {
                     state.drillDownStack.last().name
                 } else "Storage Analyzer",
-                onBack = if (state.drillDownStack.isNotEmpty()) ({
-                    viewModel.navigateUp()
-                }) else onBack
+                onBack = handleBack
             )
         }
     ) { paddingValues ->
