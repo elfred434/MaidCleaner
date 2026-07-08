@@ -75,7 +75,7 @@ fun StorageRingChart(
         contentAlignment = Alignment.Center
     ) {
         CircularProgressIndicator(
-            progress = { animatedProgress },
+            progress = animatedProgress,
             modifier = Modifier.fillMaxSize(),
             color = when {
                 usedPercentage > 90f -> MaterialTheme.colorScheme.error
@@ -83,8 +83,7 @@ fun StorageRingChart(
                 else -> MaterialTheme.colorScheme.primary
             },
             strokeWidth = 12.dp,
-            strokeCap = StrokeCap.Round,
-            trackColor = MaterialTheme.colorScheme.surfaceVariant,
+            strokeCap = StrokeCap.Round
         )
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             Text(
@@ -167,11 +166,13 @@ fun ScanProgressIndicator(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         LinearProgressIndicator(
-            progress = { progress / 100f },
+            progress = progress / 100f,
             modifier = Modifier
                 .fillMaxWidth()
                 .height(8.dp)
                 .clip(MaterialTheme.shapes.small),
+            color = MaterialTheme.colorScheme.primary,
+            strokeCap = StrokeCap.Round
         )
         Spacer(modifier = Modifier.height(8.dp))
         Text(
@@ -322,7 +323,7 @@ fun PermissionRationaleDialog(
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
                 Spacer(modifier = Modifier.height(12.dp))
-                HorizontalDivider()
+                Divider(color = MaterialTheme.colorScheme.outlineVariant)
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
                     "This permission will only be used for the stated purpose. No data leaves your device.",
@@ -371,7 +372,7 @@ fun StorageBreakdownBar(
                     modifier = Modifier
                         .weight(fraction)
                         .fillMaxHeight()
-                        .background(Color(category.color), shape = if (category == categories.first()) barShape else if (category == categories.last()) barShape else RoundedCornerShape(0.dp))
+                        .background(Color(category.color))
                 )
             }
         }
@@ -382,6 +383,7 @@ fun StorageBreakdownBar(
 // File type filter chips
 // ============================================================================
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FileTypeFilterChips(
     selectedTypes: Set<com.maidcleaner.data.model.FileType>,
@@ -401,10 +403,3 @@ fun FileTypeFilterChips(
         }
     }
 }
-
-private fun Modifier.horizontalScroll(state: ScrollState) =
-    this.then(androidx.compose.foundation.horizontalScroll(state))
-
-private typealias ScrollState = androidx.compose.foundation.ScrollState
-
-private fun rememberScrollState() = androidx.compose.foundation.rememberScrollState()

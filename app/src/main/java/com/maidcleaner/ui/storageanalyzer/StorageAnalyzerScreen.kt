@@ -1,11 +1,13 @@
 package com.maidcleaner.ui.storageanalyzer
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
@@ -44,14 +46,12 @@ fun StorageAnalyzerScreen(
             )
         }
     ) { paddingValues ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(paddingValues)
-        ) {
-            if (state.isScanning) {
+        when {
+            state.isScanning -> {
                 Box(
-                    modifier = Modifier.fillMaxSize(),
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(paddingValues),
                     contentAlignment = Alignment.Center
                 ) {
                     ScanProgressIndicator(
@@ -59,109 +59,131 @@ fun StorageAnalyzerScreen(
                         message = state.scanMessage
                     )
                 }
-                return@Column
             }
-
-            if (state.categories.isNotEmpty()) {
-                // Category breakdown chart
-                Card(
+            state.categories.isNotEmpty() -> {
+                Column(
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(16.dp)
+                        .fillMaxSize()
+                        .padding(paddingValues)
                 ) {
-                    Column(modifier = Modifier.padding(16.dp)) {
-                        Text(
-                            "Storage Breakdown",
-                            style = MaterialTheme.typography.titleMedium,
-                            fontWeight = FontWeight.SemiBold
-                        )
-                        Spacer(modifier = Modifier.height(16.dp))
+                    // Category breakdown chart
+                    Card(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(16.dp)
+                    ) {
+                        Column(modifier = Modifier.padding(16.dp)) {
+                            Text(
+                                "Storage Breakdown",
+                                style = MaterialTheme.typography.titleMedium,
+                                fontWeight = FontWeight.SemiBold
+                            )
+                            Spacer(modifier = Modifier.height(16.dp))
 
-                        // Horizontal stacked bar
-                        StorageBreakdownBar(categories = state.categories)
+                            // Horizontal stacked bar
+                            StorageBreakdownBar(categories = state.categories)
 
-                        Spacer(modifier = Modifier.height(16.dp))
+                            Spacer(modifier = Modifier.height(16.dp))
 
-                        // Legend
-                        state.categories.forEach { category ->
-                            Row(
-                                modifier = Modifier.padding(vertical = 2.dp),
-                                verticalAlignment = Alignment.CenterVertically
-                            ) {
-                                Box(
-                                    modifier = Modifier
-                                        .size(12.dp)
-                                        .clip(MaterialTheme.shapes.extraSmall),
-                                    contentAlignment = Alignment.Center
+                            // Legend
+                            state.categories.forEach { category ->
+                                Row(
+                                    modifier = Modifier.padding(vertical = 2.dp),
+                                    verticalAlignment = Alignment.CenterVertically
                                 ) {
-                                    Surface(
-                                        modifier = Modifier.fillMaxSize(),
-                                        color = Color(category.color)
-                                    ) {}
+                                    Box(
+                                        modifier = Modifier
+                                            .size(12.dp)
+                                            .clip(RoundedCornerShape(2.dp))
+                                            .background(Color(category.color))
+                                    )
+                                    Spacer(modifier = Modifier.width(8.dp))
+                                    Text(
+                                        category.name,
+                                        style = MaterialTheme.typography.bodySmall,
+                                        modifier = Modifier.weight(1f)
+                                    )
+                                    Text(
+                                        "${SizeFormatter.format(category.size)} (${
+                                            String.format(
+                                                "%.1f",
+                                                category.percentage
+                                            )
+                                        }%)",
+                                        style = MaterialTheme.typography.bodySmall,
+                                        fontWeight = FontWeight.Medium
+                                    )
                                 }
-                                Spacer(modifier = Modifier.width(8.dp))
-                                Text(
-                                    category.name,
-                                    style = MaterialTheme.typography.bodySmall,
-                                    modifier = Modifier.weight(1f)
-                                )
-                                Text(
-                                    "${SizeFormatter.format(category.size)} (${String.format("%.1f", category.percentage)}%)",
-                                    style = MaterialTheme.typography.bodySmall,
-                                    fontWeight = FontWeight.Medium
-                                )
                             }
                         }
                     }
-                }
 
-                // File type filter chips
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .horizontalScroll(rememberScrollState())
-                        .padding(horizontal = 16.dp),
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    FilterChip(
-                        selected = state.selectedTypeFilter == null,
-                        onClick = { viewModel.setTypeFilter(null) },
-                        label = { Text("All") }
-                    )
-                    FileType.entries.forEach { type ->
+                    // File type filter chips
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .horizontalScroll(rememberScrollState())
+                            .padding(horizontal = 16.dp),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
                         FilterChip(
-                            selected = state.selectedTypeFilter == type,
-                            onClick = { viewModel.setTypeFilter(type) },
-                            label = { Text(type.name.lowercase().replaceFirstChar { it.uppercase() }) }
+                            selected = state.selectedTypeFilter == null,
+                            onClick = { viewModel.setTypeFilter(null) },
+                            label = { Text("All") }
                         )
+                        FileType.entries.forEach { type ->
+                            FilterChip(
+                                selected = state.selectedTypeFilter == type,
+                                onClick = { viewModel.setTypeFilter(type) },
+                                label = {
+                                    Text(
+                                        type.name.lowercase()
+                                            .replaceFirstChar { it.uppercase() })
+                                }
+                            )
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(8.dp))
+
+                    // Largest files / drill-down
+                    Text(
+                        if (state.drillDownStack.isNotEmpty()) "Contents"
+                        else "Largest Files",
+                        style = MaterialTheme.typography.titleSmall,
+                        fontWeight = FontWeight.SemiBold,
+                        modifier = Modifier.padding(horizontal = 16.dp)
+                    )
+
+                    LazyColumn(
+                        modifier = Modifier.fillMaxSize(),
+                        contentPadding = PaddingValues(16.dp),
+                        verticalArrangement = Arrangement.spacedBy(4.dp)
+                    ) {
+                        items(state.filteredFiles, key = { it.path }) { file ->
+                            FileEntryCard(
+                                entry = file,
+                                onClick = {
+                                    if (file.isDirectory) {
+                                        viewModel.drillDownInto(file)
+                                    }
+                                }
+                            )
+                        }
                     }
                 }
-
-                Spacer(modifier = Modifier.height(8.dp))
-
-                // Largest files / drill-down
-                Text(
-                    if (state.drillDownStack.isNotEmpty()) "Contents"
-                    else "Largest Files",
-                    style = MaterialTheme.typography.titleSmall,
-                    fontWeight = FontWeight.SemiBold,
-                    modifier = Modifier.padding(horizontal = 16.dp)
-                )
-
-                LazyColumn(
-                    modifier = Modifier.fillMaxSize(),
-                    contentPadding = PaddingValues(16.dp),
-                    verticalArrangement = Arrangement.spacedBy(4.dp)
+            }
+            else -> {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(paddingValues),
+                    contentAlignment = Alignment.Center
                 ) {
-                    items(state.filteredFiles, key = { it.path }) { file ->
-                        FileEntryCard(
-                            entry = file,
-                            onClick = {
-                                if (file.isDirectory) {
-                                    viewModel.drillDownInto(file)
-                                }
-                            }
-                        )
+                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                        CircularProgressIndicator()
+                        Spacer(modifier = Modifier.height(8.dp))
+                        Text("Loading storage data...")
                     }
                 }
             }
@@ -178,15 +200,17 @@ fun StorageBreakdownBar(categories: List<StorageCategory>) {
         modifier = Modifier
             .fillMaxWidth()
             .height(24.dp)
-            .clip(MaterialTheme.shapes.small)
+            .clip(RoundedCornerShape(4.dp))
     ) {
         categories.forEach { category ->
             val fraction = category.size.toFloat() / totalSize.toFloat()
             if (fraction > 0.005f) {
-                Surface(
-                    modifier = Modifier.weight(fraction),
-                    color = Color(category.color)
-                ) {}
+                Box(
+                    modifier = Modifier
+                        .weight(fraction)
+                        .fillMaxHeight()
+                        .background(Color(category.color))
+                )
             }
         }
     }
@@ -255,6 +279,3 @@ fun FileEntryCard(
         }
     }
 }
-
-@Composable
-private fun rememberScrollState() = androidx.compose.foundation.rememberScrollState()

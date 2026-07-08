@@ -180,7 +180,7 @@ fun AppControlScreen(
         showActionsForApp?.let { pkgName ->
             val app = state.filteredApps.find { it.packageName == pkgName }
             if (app != null) {
-                AppActionSheet(
+                AppActionDialog(
                     app = app,
                     onDismiss = { showActionsForApp = null },
                     onUninstall = {
@@ -262,7 +262,7 @@ fun AppControlCard(
 }
 
 @Composable
-fun AppActionSheet(
+fun AppActionDialog(
     app: com.maidcleaner.data.model.AppInfo,
     onDismiss: () -> Unit,
     onUninstall: () -> Unit,
@@ -277,12 +277,7 @@ fun AppActionSheet(
                 Text("Package: ${app.packageName}", style = MaterialTheme.typography.bodySmall)
                 Text("Version: ${app.versionName ?: "Unknown"}", style = MaterialTheme.typography.bodySmall)
                 Text("Size: ${SizeFormatter.format(app.totalSize)}", style = MaterialTheme.typography.bodySmall)
-                Spacer(modifier = Modifier.height(16.dp))
-            }
-        },
-        confirmButton = {},
-        buttons = {
-            Column(modifier = Modifier.padding(8.dp)) {
+                Spacer(modifier = Modifier.height(12.dp))
                 if (!app.isSystemApp) {
                     TextButton(onClick = onUninstall) {
                         Icon(Icons.Default.Delete, null, modifier = Modifier.size(18.dp))
@@ -300,10 +295,10 @@ fun AppActionSheet(
                     Spacer(modifier = Modifier.width(8.dp))
                     Text("Clear Data / Cache")
                 }
-                TextButton(onClick = onDismiss) {
-                    Text("Cancel")
-                }
             }
+        },
+        confirmButton = {
+            TextButton(onClick = onDismiss) { Text("Close") }
         }
     )
 }

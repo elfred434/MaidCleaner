@@ -80,9 +80,9 @@ fun SchedulerScreen(
             }
         }
 
-        // Create schedule bottom sheet
+        // Create schedule dialog
         if (state.isCreating) {
-            CreateScheduleSheet(
+            CreateScheduleDialog(
                 state = state,
                 onSetFrequency = { viewModel.setFrequency(it) },
                 onSetHour = { viewModel.setHour(it) },
@@ -141,7 +141,7 @@ fun ScheduleCard(
 }
 
 @Composable
-fun CreateScheduleSheet(
+fun CreateScheduleDialog(
     state: SchedulerState,
     onSetFrequency: (ScanFrequency) -> Unit,
     onSetHour: (Int) -> Unit,
@@ -150,6 +150,9 @@ fun CreateScheduleSheet(
     onCreate: () -> Unit,
     onDismiss: () -> Unit
 ) {
+    var hour by remember { mutableStateOf(state.newScheduleHour) }
+    var minute by remember { mutableStateOf(state.newScheduleMinute) }
+
     AlertDialog(
         onDismissRequest = onDismiss,
         title = { Text("Create Scheduled Scan") },
@@ -173,9 +176,6 @@ fun CreateScheduleSheet(
                     horizontalArrangement = Arrangement.spacedBy(8.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    var hour by remember { mutableIntStateOf(state.newScheduleHour) }
-                    var minute by remember { mutableIntStateOf(state.newScheduleMinute) }
-
                     OutlinedTextField(
                         value = String.format("%02d", hour),
                         onValueChange = {

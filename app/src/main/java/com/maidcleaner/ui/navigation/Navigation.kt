@@ -39,8 +39,8 @@ fun MaidCleanerNavHost(
     NavHost(
         navController = navController,
         startDestination = Routes.DASHBOARD,
-        enterTransition = fadeIn(animationSpec = tween(animationDuration)),
-        exitTransition = fadeOut(animationSpec = tween(animationDuration))
+        enterTransition = { fadeIn(animationSpec = tween(animationDuration)) },
+        exitTransition = { fadeOut(animationSpec = tween(animationDuration)) }
     ) {
         composable(Routes.DASHBOARD) {
             DashboardScreen(
@@ -57,64 +57,144 @@ fun MaidCleanerNavHost(
 
         composable(
             Routes.CORPSE_FINDER,
-            enterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(animationDuration)) },
-            popExitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(animationDuration)) }
+            enterTransition = {
+                slideIntoContainer(
+                    AnimatedContentTransitionScope.SlideDirection.Start,
+                    animationSpec = tween(animationDuration)
+                )
+            },
+            popExitTransition = {
+                slideOutOfContainer(
+                    AnimatedContentTransitionScope.SlideDirection.End,
+                    animationSpec = tween(animationDuration)
+                )
+            }
         ) {
             CorpseFinderScreen(onBack = { navController.popBackStack() })
         }
 
         composable(
             Routes.SYSTEM_CLEANER,
-            enterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(animationDuration)) },
-            popExitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(animationDuration)) }
+            enterTransition = {
+                slideIntoContainer(
+                    AnimatedContentTransitionScope.SlideDirection.Start,
+                    animationSpec = tween(animationDuration)
+                )
+            },
+            popExitTransition = {
+                slideOutOfContainer(
+                    AnimatedContentTransitionScope.SlideDirection.End,
+                    animationSpec = tween(animationDuration)
+                )
+            }
         ) {
             SystemCleanerScreen(onBack = { navController.popBackStack() })
         }
 
         composable(
             Routes.APP_CLEANER,
-            enterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(animationDuration)) },
-            popExitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(animationDuration)) }
+            enterTransition = {
+                slideIntoContainer(
+                    AnimatedContentTransitionScope.SlideDirection.Start,
+                    animationSpec = tween(animationDuration)
+                )
+            },
+            popExitTransition = {
+                slideOutOfContainer(
+                    AnimatedContentTransitionScope.SlideDirection.End,
+                    animationSpec = tween(animationDuration)
+                )
+            }
         ) {
             AppCleanerScreen(onBack = { navController.popBackStack() })
         }
 
         composable(
             Routes.APP_CONTROL,
-            enterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(animationDuration)) },
-            popExitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(animationDuration)) }
+            enterTransition = {
+                slideIntoContainer(
+                    AnimatedContentTransitionScope.SlideDirection.Start,
+                    animationSpec = tween(animationDuration)
+                )
+            },
+            popExitTransition = {
+                slideOutOfContainer(
+                    AnimatedContentTransitionScope.SlideDirection.End,
+                    animationSpec = tween(animationDuration)
+                )
+            }
         ) {
             AppControlScreen(onBack = { navController.popBackStack() })
         }
 
         composable(
             Routes.STORAGE_ANALYZER,
-            enterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(animationDuration)) },
-            popExitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(animationDuration)) }
+            enterTransition = {
+                slideIntoContainer(
+                    AnimatedContentTransitionScope.SlideDirection.Start,
+                    animationSpec = tween(animationDuration)
+                )
+            },
+            popExitTransition = {
+                slideOutOfContainer(
+                    AnimatedContentTransitionScope.SlideDirection.End,
+                    animationSpec = tween(animationDuration)
+                )
+            }
         ) {
             StorageAnalyzerScreen(onBack = { navController.popBackStack() })
         }
 
         composable(
             Routes.DUPLICATE_FINDER,
-            enterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(animationDuration)) },
-            popExitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(animationDuration)) }
+            enterTransition = {
+                slideIntoContainer(
+                    AnimatedContentTransitionScope.SlideDirection.Start,
+                    animationSpec = tween(animationDuration)
+                )
+            },
+            popExitTransition = {
+                slideOutOfContainer(
+                    AnimatedContentTransitionScope.SlideDirection.End,
+                    animationSpec = tween(animationDuration)
+                )
+            }
         ) {
             DuplicateFinderScreen(onBack = { navController.popBackStack() })
         }
 
         composable(
             Routes.OPTIMIZER,
-            enterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(animationDuration)) },
-            popExitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(animationDuration)) }
+            enterTransition = {
+                slideIntoContainer(
+                    AnimatedContentTransitionScope.SlideDirection.Start,
+                    animationSpec = tween(animationDuration)
+                )
+            },
+            popExitTransition = {
+                slideOutOfContainer(
+                    AnimatedContentTransitionScope.SlideDirection.End,
+                    animationSpec = tween(animationDuration)
+                )
+            }
         ) {
             OptimizerScreen(onBack = { navController.popBackStack() })
         }
 
         composable(
             Routes.SCHEDULER,
-            enterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Start, tween(animationDuration)) },
-            popExitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.End, tween(animationDuration)) }
+            enterTransition = {
+                slideIntoContainer(
+                    AnimatedContentTransitionScope.SlideDirection.Start,
+                    animationSpec = tween(animationDuration)
+                )
+            },
+            popExitTransition = {
+                slideOutOfContainer(
+                    AnimatedContentTransitionScope.SlideDirection.End,
+                    animationSpec = tween(animationDuration)
+                )
+            }
         ) {
             SchedulerScreen(onBack = { navController.popBackStack() })
         }

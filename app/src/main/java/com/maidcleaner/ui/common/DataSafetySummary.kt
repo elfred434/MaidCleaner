@@ -8,6 +8,7 @@ import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 
@@ -42,7 +43,7 @@ fun DataSafetySummary(modifier: Modifier = Modifier) {
                 )
             }
 
-            HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
+            Divider(modifier = Modifier.padding(vertical = 8.dp), color = MaterialTheme.colorScheme.outlineVariant)
 
             // Data collected
             SectionHeader("Data Collected")
@@ -62,7 +63,7 @@ fun DataSafetySummary(modifier: Modifier = Modifier) {
                 isPositive = true
             )
 
-            HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
+            Divider(modifier = Modifier.padding(vertical = 8.dp), color = MaterialTheme.colorScheme.outlineVariant)
 
             // Data shared
             SectionHeader("Data Shared")
@@ -82,7 +83,7 @@ fun DataSafetySummary(modifier: Modifier = Modifier) {
                 isPositive = true
             )
 
-            HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
+            Divider(modifier = Modifier.padding(vertical = 8.dp), color = MaterialTheme.colorScheme.outlineVariant)
 
             // Data handling
             SectionHeader("Data Handling")
@@ -92,7 +93,7 @@ fun DataSafetySummary(modifier: Modifier = Modifier) {
                 isPositive = true
             )
             SafetyItem(
-                icon = Icons.Default.Encrypt,
+                icon = Icons.Default.Lock,
                 text = "Local data stored in app-private storage",
                 isPositive = true
             )
@@ -102,7 +103,7 @@ fun DataSafetySummary(modifier: Modifier = Modifier) {
                 isPositive = true
             )
 
-            HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
+            Divider(modifier = Modifier.padding(vertical = 8.dp), color = MaterialTheme.colorScheme.outlineVariant)
 
             // Permissions
             SectionHeader("Permissions Used")
@@ -134,7 +135,7 @@ private fun SectionHeader(title: String) {
 }
 
 @Composable
-private fun SafetyItem(icon: androidx.compose.ui.graphics.vector.ImageVector, text: String, isPositive: Boolean) {
+private fun SafetyItem(icon: ImageVector, text: String, isPositive: Boolean) {
     Row(
         modifier = Modifier.padding(vertical = 2.dp),
     ) {

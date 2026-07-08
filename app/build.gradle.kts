@@ -76,8 +76,8 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
     implementation("androidx.lifecycle:lifecycle-service:2.7.0")
 
-    // Compose BOM
-    val composeBom = platform("androidx.compose:compose-bom:2024.01.00")
+    // Compose BOM (2024.02.00 aligns with Compose 1.6 + Material3 1.2)
+    val composeBom = platform("androidx.compose:compose-bom:2024.02.00")
     implementation(composeBom)
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")

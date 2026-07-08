@@ -257,5 +257,3 @@ This project is provided as-is for educational and development purposes. See ind
 ---
 
 **Built with ❤️ for privacy-conscious Android users.**
-#   M a i d C l e a n e r  
- 
